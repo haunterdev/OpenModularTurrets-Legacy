@@ -24,14 +24,12 @@ Keridos).
   are not shot on sight, and a global trust list that applies to every base you own.
 - **Support blocks.** The Expander for extra upgrade and addon room, the Energizer, the Loot Deleter
   base addon, a lever for redstone control, and the Turret Memory Card for copying a base's settings.
-- **Recipe viewer integration.** EMI shows every recipe and the turret exclusion areas.
+- **Recipe viewer integration.** JEI/EMI shows every recipe and the turret exclusion areas.
 
 ## Requirements
 
 - Minecraft 1.20.1
 - Minecraft Forge 47.4.10 or newer
-
-No other dependencies. OMLib is bundled inside the jar.
 
 ## Installation
 
@@ -44,7 +42,7 @@ No other dependencies. OMLib is bundled inside the jar.
 ## Getting started
 
 Craft a Turret Base, place it, and right click it to open the base GUI. Feed it energy from any Forge
-energy cable, drop ammo in the ammo slots for the turrets that need it, then place a turret head on top
+energy cable, put ammo in the ammo slots for the turrets that need it, then place a turret head on top
 of the base. Open the base's Configure screen to set what it shoots at and who it trusts.
 
 `/omlib trust gui` opens your global trust list, `/omlib share` lets another player operate the blocks
@@ -79,15 +77,14 @@ rebalance, no reworked recipes and no new art. The models, textures, sounds and 
 original team's, taken from the 1.12.2 jar. Everything this port does differently is in the list
 directly above, and nothing on that list adds content.
 
-Pick by what you want on your server. Legacy is the 1.12.2 mod on a modern loader. Reborn is
+Pick by what you want personally, Legacy is the 1.12.2 mod on a modern loader. Reborn is
 someone's expanded take on it.
 
 ## How this port is built
 
-Each class is read out of the 1.12.2 jar first and rewritten against 1.20.1 from what is actually
-there, rather than rebuilt from memory of how the mod played. Where a line could not come across,
+Each class is read out of the 1.12.2 jar first and rewritten against 1.20.1. Where a line could not come across,
 the source carries a `DROPPED:` comment naming what went and why, so the gap is in the code where
-the next reader will find it. The assets are copied, not redrawn.
+the next reader will find it.
 
 That is why the changes list above is a short list of specific items instead of a paragraph telling
 you results may vary.
