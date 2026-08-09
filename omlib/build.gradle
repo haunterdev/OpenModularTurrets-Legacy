@@ -1,0 +1,28 @@
+base {
+    archivesName = 'omlib'
+}
+
+// omlib ships only as a jar-in-jar inside omt and ompd. Those consumers reobf their own classes
+// (reobfJarJar), but reobf does not recurse into nested jars, so omlib must reobf its own jar to
+// SRG here. Without this the embedded omlib keeps official (Mojmap) names and the deobf dev run
+// works while the production Prism jar dies with NoSuchFieldError: IRON_BLOCK at common_setup.
+reobf {
+    jar { }
+}
+
+dependencies {
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${project.registrate_version}")
+}
+
+jar {
+    manifest {
+        attributes([
+            'Specification-Title'     : 'omlib',
+            'Specification-Vendor'    : 'com.ommods',
+            'Specification-Version'   : '1',
+            'Implementation-Title'    : 'omlib',
+            'Implementation-Version'  : project.version,
+            'Implementation-Vendor'   : 'com.ommods'
+        ])
+    }
+}

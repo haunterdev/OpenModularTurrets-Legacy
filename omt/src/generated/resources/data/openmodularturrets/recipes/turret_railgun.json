@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "openmodularturrets:barrel_tier5"
+    },
+    "B": {
+      "item": "openmodularturrets:chamber_tier5"
+    },
+    "C": {
+      "tag": "forge:obsidian"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    "CAC",
+    "CAC",
+    "DBD"
+  ],
+  "result": {
+    "item": "openmodularturrets:turret_railgun"
+  },
+  "show_notification": true
+}

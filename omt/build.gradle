@@ -1,0 +1,50 @@
+base {
+    archivesName = 'openmodularturrets'
+}
+
+jarJar.enable()
+
+reobf {
+    jarJar { }
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
+// The embedded omlib must be reobfed to SRG before we bundle it. omlib's reobfJar rewrites its jar
+// in place, but jarJar does not otherwise wait for that finalizer, so a plain build embeds the
+// un-reobfed (Mojmap) omlib and dies in production with NoSuchFieldError: IRON_BLOCK. Force the
+// ordering so jarJar reads omlib's jar only after it has been reobfed.
+tasks.jarJar.dependsOn(':omlib:reobfJar')
+
+tasks.jarJar.configure {
+    archiveClassifier = ''
+}
+
+jar {
+    archiveClassifier = 'slim'
+}
+
+dependencies {
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${project.registrate_version}")
+    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC1.20,MC1.21)") {
+        transitive = false
+    }
+
+    // EMI is an optional client-side integration: compile against the API only, and pull the full
+    // mod into the dev run so the exclusion areas can be checked in game. It is never bundled.
+    //
+    // The full mod is skipped when -PnoEmi is set, which runData needs: EMI's ItemStackMixin targets
+    // a getTooltip signature that does not exist in this Forge build, and mixin treats that as a
+    // critical failure, so a data run with EMI on the classpath dies before any provider runs. Use
+    // "gradlew :omt:runData -PnoEmi" to regenerate models and lang.
+    compileOnly fg.deobf("dev.emi:emi-forge:${project.emi_version}:api")
+    if (!project.hasProperty('noEmi')) {
+        runtimeOnly fg.deobf("dev.emi:emi-forge:${project.emi_version}")
+    }
+
+    implementation project(':omlib')
+    jarJar(project(':omlib')) {
+        transitive = false
+        jarJar.ranged(it, "[4.0.0,5.0.0)")
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:gems/diamond"
+    },
+    "B": {
+      "item": "openmodularturrets:turret_base_tier3"
+    },
+    "C": {
+      "item": "openmodularturrets:sensor_tier4"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "DCD",
+    "ADA"
+  ],
+  "result": {
+    "item": "openmodularturrets:turret_base_tier4"
+  },
+  "show_notification": true
+}

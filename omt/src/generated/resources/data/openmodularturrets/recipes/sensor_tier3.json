@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/gold"
+    },
+    "B": {
+      "item": "openmodularturrets:sensor_tier2"
+    },
+    "C": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    " C ",
+    "ABA",
+    " C "
+  ],
+  "result": {
+    "item": "openmodularturrets:sensor_tier3"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:obsidian"
+    },
+    "B": {
+      "item": "openmodularturrets:turret_base_tier4"
+    },
+    "C": {
+      "item": "openmodularturrets:sensor_tier5"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "DCD",
+    "ADA"
+  ],
+  "result": {
+    "item": "openmodularturrets:turret_base_tier5"
+  },
+  "show_notification": true
+}

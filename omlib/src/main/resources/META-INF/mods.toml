@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT"
+issueTrackerURL="https://github.com/haunterdev/OpenModularTurrets-1.20.1/issues"
+
+[[mods]]
+modId="omlib"
+version="${file.jarVersion}"
+displayName="OMLib"
+description='''Shared library bundled inside Open Modular Turrets. Not a separate download.'''
+authors="Poenjabiesous, Keridos. 1.20.1 port by haunterdev"
+
+[[dependencies.omlib]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.omlib]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.20.2)"
+    ordering="NONE"
+    side="BOTH"

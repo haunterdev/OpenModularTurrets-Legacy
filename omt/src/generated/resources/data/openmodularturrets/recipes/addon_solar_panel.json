@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:glass_panes"
+    },
+    "B": {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    "C": {
+      "tag": "forge:dusts/redstone"
+    },
+    "D": {
+      "tag": "forge:ingots/iron"
+    },
+    "E": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "CBC",
+    "DED"
+  ],
+  "result": {
+    "item": "openmodularturrets:addon_solar_panel"
+  },
+  "show_notification": true
+}

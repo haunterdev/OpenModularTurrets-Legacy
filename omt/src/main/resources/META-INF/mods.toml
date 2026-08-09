@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="GPL-3.0"
+issueTrackerURL="https://github.com/haunterdev/OpenModularTurrets-1.20.1/issues"
+
+[[mods]]
+modId="openmodularturrets"
+version="${file.jarVersion}"
+displayName="Open Modular Turrets"
+description='''Modular, upgradeable turrets that defend your base. Ten turret heads, five base tiers, upgrades, addons and a trust system.'''
+authors="Poenjabiesous, UntouchedWagons, Keridos. 1.20.1 port by haunterdev"
+
+[[dependencies.openmodularturrets]]
+    modId="omlib"
+    mandatory=true
+    versionRange="[4.0.0,5.0.0)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.openmodularturrets]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.openmodularturrets]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.20.2)"
+    ordering="NONE"
+    side="BOTH"

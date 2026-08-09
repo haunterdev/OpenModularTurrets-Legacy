@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:storage_blocks/lapis"
+    },
+    "B": {
+      "item": "minecraft:ender_eye"
+    },
+    "C": {
+      "tag": "forge:gems/quartz"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    "CAC",
+    "ABD",
+    "CAC"
+  ],
+  "result": {
+    "item": "openmodularturrets:addon_fake_drops"
+  },
+  "show_notification": true
+}

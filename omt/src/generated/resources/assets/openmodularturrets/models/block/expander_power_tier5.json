@@ -1,0 +1,7 @@
+{
+  "parent": "openmodularturrets:block/expander_pad",
+  "textures": {
+    "side": "openmodularturrets:block/expander_power_tier_five_side",
+    "top": "openmodularturrets:block/expander_power_tier_five_top"
+  }
+}

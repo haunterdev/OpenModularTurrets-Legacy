@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:cobblestone"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "A  ",
+    "A  "
+  ],
+  "result": {
+    "item": "openmodularturrets:lever_block"
+  },
+  "show_notification": true
+}

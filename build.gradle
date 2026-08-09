@@ -1,0 +1,86 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'net.minecraftforge.gradle'
+
+    group = project.group_id
+    version = project.mod_version
+
+    java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+    minecraft {
+        mappings channel: project.mapping_channel, version: project.mapping_version
+
+        runs {
+            // In-dev client. Same shape as the server run below, so a visual check does not need a
+            // build, a jar deploy and a launcher round trip. Note it loads the source sets directly,
+            // so it never exercises reobf or jar-in-jar: production-only breakage stays invisible
+            // here and still needs a deployed jar to catch.
+            client {
+                workingDirectory project.file('run')
+                property 'forge.logging.console.level', 'info'
+                mods {
+                    "${project.name == 'omt' ? 'openmodularturrets' : project.name}" {
+                        source sourceSets.main
+                    }
+                }
+            }
+
+            data {
+                workingDirectory project.file('run')
+                property 'forge.logging.console.level', 'info'
+                args '--mod', project.name == 'omt' ? 'openmodularturrets' : project.name,
+                        '--all',
+                        '--output', file("${project.projectDir}/src/generated/resources/"),
+                        '--existing', file("${project.projectDir}/src/main/resources/")
+                mods {
+                    "${project.name == 'omt' ? 'openmodularturrets' : project.name}" {
+                        source sourceSets.main
+                    }
+                }
+            }
+
+            // Headless load check. A dedicated server loads a world, which is the only thing that
+            // triggers the SERVER config bake; the client main menu never does.
+            server {
+                workingDirectory project.file('run-server')
+                property 'forge.logging.console.level', 'info'
+                mods {
+                    "${project.name == 'omt' ? 'openmodularturrets' : project.name}" {
+                        source sourceSets.main
+                    }
+                }
+            }
+        }
+    }
+
+    // Registrate emits blockstates, models and lang at datagen time, not runtime.
+    // Without this the jar ships a blockstate with no model and the block renders as missing.
+    sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.minecraftforge.net/' }
+        maven { name = 'tterrag'; url = 'https://maven.tterrag.com/' }
+        maven { name = 'TerraformersMC'; url = 'https://maven.terraformersmc.com/releases' }
+    }
+
+    dependencies {
+        minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${project.junit_version}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${project.junit_version}"
+        testImplementation "org.mockito:mockito-core:${project.mockito_version}"
+        testImplementation "org.mockito:mockito-junit-jupiter:${project.mockito_version}"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+}

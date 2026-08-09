@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "item": "minecraft:tnt"
+    },
+    "C": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "ABA",
+    "ACA"
+  ],
+  "result": {
+    "count": 32,
+    "item": "openmodularturrets:ammo_rocket"
+  },
+  "show_notification": true
+}

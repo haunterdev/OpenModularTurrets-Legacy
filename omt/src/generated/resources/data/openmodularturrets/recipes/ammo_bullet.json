@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "item": "minecraft:gunpowder"
+    },
+    "C": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " A ",
+    "BC ",
+    " A "
+  ],
+  "result": {
+    "count": 64,
+    "item": "openmodularturrets:ammo_bullet"
+  },
+  "show_notification": true
+}

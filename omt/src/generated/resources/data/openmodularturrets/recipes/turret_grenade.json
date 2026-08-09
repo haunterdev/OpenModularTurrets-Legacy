@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "openmodularturrets:barrel_tier3"
+    },
+    "B": {
+      "item": "openmodularturrets:chamber_tier3"
+    },
+    "C": {
+      "tag": "forge:ingots/gold"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    }
+  },
+  "pattern": [
+    " A ",
+    "CBC",
+    "CDC"
+  ],
+  "result": {
+    "item": "openmodularturrets:turret_grenade"
+  },
+  "show_notification": true
+}

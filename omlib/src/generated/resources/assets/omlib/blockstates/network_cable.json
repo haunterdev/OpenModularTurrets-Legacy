@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "omlib:block/network_cable"
+    }
+  }
+}

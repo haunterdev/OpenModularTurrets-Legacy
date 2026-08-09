@@ -1,0 +1,182 @@
+{
+  "amped": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.amped",
+    "sounds": [
+      {
+        "name": "openmodularturrets:amped",
+        "stream": false
+      }
+    ]
+  },
+  "bullet_hit": {
+    "category": "ambient",
+    "subtitle": "subtitles.openmodularturrets.bullet_hit",
+    "sounds": [
+      {
+        "name": "openmodularturrets:bullet_hit",
+        "stream": false
+      }
+    ]
+  },
+  "windup": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.windup",
+    "sounds": [
+      {
+        "name": "openmodularturrets:windup",
+        "stream": false
+      }
+    ]
+  },
+  "grenade": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.grenade",
+    "sounds": [
+      {
+        "name": "openmodularturrets:grenade",
+        "stream": false
+      }
+    ]
+  },
+  "machine_gun": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.machine_gun",
+    "sounds": [
+      {
+        "name": "openmodularturrets:machine_gun",
+        "stream": false
+      }
+    ]
+  },
+  "laser": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.laser",
+    "sounds": [
+      {
+        "name": "openmodularturrets:laser",
+        "stream": false
+      }
+    ]
+  },
+  "warning": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.warning",
+    "sounds": [
+      {
+        "name": "openmodularturrets:warning",
+        "stream": false
+      }
+    ]
+  },
+  "laser_hit": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.laser_hit",
+    "sounds": [
+      {
+        "name": "openmodularturrets:laser_hit",
+        "stream": false
+      }
+    ]
+  },
+  "rocket": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.rocket",
+    "sounds": [
+      {
+        "name": "openmodularturrets:rocket",
+        "stream": false
+      }
+    ]
+  },
+  "disposable": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.disposable",
+    "sounds": [
+      {
+        "name": "openmodularturrets:disposable",
+        "stream": false
+      }
+    ]
+  },
+  "potato": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.potato",
+    "sounds": [
+      {
+        "name": "openmodularturrets:potato",
+        "stream": false
+      }
+    ]
+  },
+  "incendiary": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.incendiary",
+    "sounds": [
+      {
+        "name": "openmodularturrets:incendiary",
+        "stream": false
+      }
+    ]
+  },
+  "relativistic": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.relativistic",
+    "sounds": [
+      {
+        "name": "openmodularturrets:relativistic",
+        "stream": false
+      }
+    ]
+  },
+  "teleport": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.teleport",
+    "sounds": [
+      {
+        "name": "openmodularturrets:teleport",
+        "stream": false
+      }
+    ]
+  },
+  "rail_gun": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.rail_gun",
+    "sounds": [
+      {
+        "name": "openmodularturrets:rail_gun",
+        "stream": false
+      }
+    ]
+  },
+  "rail_gun_hit": {
+    "category": "ambient",
+    "subtitle": "subtitles.openmodularturrets.rail_gun_hit",
+    "sounds": [
+      {
+        "name": "openmodularturrets:rail_gun_hit",
+        "stream": false
+      }
+    ]
+  },
+  "turret_deploy": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.turret_deploy",
+    "sounds": [
+      {
+        "name": "openmodularturrets:turret_deploy",
+        "stream": false
+      }
+    ]
+  },
+  "turret_retract": {
+    "category": "block",
+    "subtitle": "subtitles.openmodularturrets.turret_retract",
+    "sounds": [
+      {
+        "name": "openmodularturrets:turret_retract",
+        "stream": false
+      }
+    ]
+  }
+}

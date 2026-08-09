@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/iron"
+    },
+    "B": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CBC",
+    " A "
+  ],
+  "result": {
+    "count": 16,
+    "item": "openmodularturrets:ammo_ferro_slug"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:gems/diamond"
+    },
+    "B": {
+      "item": "openmodularturrets:barrel_tier3"
+    },
+    "C": {
+      "tag": "forge:gems/quartz"
+    }
+  },
+  "pattern": [
+    "CAC",
+    " B ",
+    "CAC"
+  ],
+  "result": {
+    "item": "openmodularturrets:barrel_tier4"
+  },
+  "show_notification": true
+}

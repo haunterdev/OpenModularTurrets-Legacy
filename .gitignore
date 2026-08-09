@@ -1,0 +1,32 @@
+build/
+.gradle/
+run/
+run-server/
+_docs/
+
+# Datagen and the Forge run configs write logs beside each module. They are
+# build output, not source, and dirty the tree on every runData.
+logs/
+
+# Datagen writes a hash cache beside the generated resources. The generated
+# resources themselves are committed, because they ship inside the jar.
+**/src/generated/resources/.cache/
+
+# Build
+out/
+bin/
+
+# Run
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db

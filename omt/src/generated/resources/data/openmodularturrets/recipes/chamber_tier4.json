@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:gems/diamond"
+    },
+    "B": {
+      "item": "openmodularturrets:chamber_tier3"
+    },
+    "C": {
+      "item": "openmodularturrets:io_bus"
+    },
+    "D": {
+      "tag": "forge:gems/quartz"
+    }
+  },
+  "pattern": [
+    "DAD",
+    " BC",
+    "DAD"
+  ],
+  "result": {
+    "item": "openmodularturrets:chamber_tier4"
+  },
+  "show_notification": true
+}

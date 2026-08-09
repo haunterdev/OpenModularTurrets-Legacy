@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "forge:ingots/gold"
+    },
+    "B": {
+      "tag": "forge:dusts/redstone"
+    },
+    "C": {
+      "tag": "forge:ingots/iron"
+    },
+    "D": {
+      "item": "openmodularturrets:io_bus"
+    },
+    "E": {
+      "item": "minecraft:paper"
+    },
+    "F": {
+      "tag": "forge:gems/lapis"
+    }
+  },
+  "pattern": [
+    "BAB",
+    "CEC",
+    "FDF"
+  ],
+  "result": {
+    "item": "openmodularturrets:memory_card"
+  },
+  "show_notification": true
+}
