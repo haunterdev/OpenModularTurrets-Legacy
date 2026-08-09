@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>Open Modular Turrets</h1>
+  <h1>Open Modular Turrets Legacy</h1>
 
   <p>Modular, upgradeable turrets that defend your base for Minecraft 1.20.1.</p>
 
@@ -61,6 +61,36 @@ you own, and `/omlib changeowner` hands a block over for good.
   could not be obtained.
 - The Serial Port addon is not included. It exposed a turret to computer mods that have no 1.20.1
   counterpart here.
+
+## There is another 1.20.1 version, and it is not this one
+
+[Open Modular Turrets Reborn](https://www.curseforge.com/minecraft/mc-mods/open-modular-turrets-reborn)
+by ShapeShifterDev got to 1.20.1 first, and it deserves the credit for that. It is a different
+project with different aims, and if its aims are yours, go and play it.
+
+By its own description it is "a fully rebuilt and rebalanced revival". It adds a Ferronite ore
+progression, an eleventh turret, a coal-fired tier 1 base that needs no power, turret loot in Nether
+Fortress and Bastion chests, Mekanism ore duplication, and reworked recipes that drop the tier
+chain. It draws its own textures rather than using the OpenModularTurrets Team's. At the time of
+writing it has one file on CurseForge, uploaded 30 June 2026.
+
+That is a fine thing to want. It is not what this is. Legacy has no new ore, no new turret, no
+rebalance, no reworked recipes and no new art. The models, textures, sounds and GUI sheets are the
+original team's, taken from the 1.12.2 jar. Everything this port does differently is in the list
+directly above, and nothing on that list adds content.
+
+Pick by what you want on your server. Legacy is the 1.12.2 mod on a modern loader. Reborn is
+someone's expanded take on it.
+
+## How this port is built
+
+Each class is read out of the 1.12.2 jar first and rewritten against 1.20.1 from what is actually
+there, rather than rebuilt from memory of how the mod played. Where a line could not come across,
+the source carries a `DROPPED:` comment naming what went and why, so the gap is in the code where
+the next reader will find it. The assets are copied, not redrawn.
+
+That is why the changes list above is a short list of specific items instead of a paragraph telling
+you results may vary.
 
 ## Building
 
