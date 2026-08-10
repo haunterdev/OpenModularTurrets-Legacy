@@ -105,5 +105,6 @@ The built jar lands in `omt/build/libs/`. Requires JDK 17.
 
 ## License
 
-[GPL-3.0](LICENSE), following the original mod's published license. The bundled OMLib portion is MIT,
-preserved in [LICENSE-OMLIB](LICENSE-OMLIB).
+[GPL-3.0](LICENSE), following the original mod's published license. That covers the mod and this
+repository. The bundled OMLib portion is MIT and keeps its own licence next to the code it covers,
+in [omlib/LICENSE](omlib/LICENSE).
