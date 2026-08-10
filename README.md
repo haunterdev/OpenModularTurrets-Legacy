@@ -24,7 +24,9 @@ Keridos).
   are not shot on sight, and a global trust list that applies to every base you own.
 - **Support blocks.** The Expander for extra upgrade and addon room, the Energizer, the Loot Deleter
   base addon, a lever for redstone control, and the Turret Memory Card for copying a base's settings.
-- **Recipe viewer integration.** JEI/EMI shows every recipe and the turret exclusion areas.
+- **Recipe viewer integration.** Every recipe is an ordinary crafting recipe, so JEI, EMI or any
+  other viewer lists them with no help from the mod. EMI additionally gets exclusion areas, which
+  keep its item list from covering the turret GUIs.
 
 ## Requirements
 
