@@ -66,6 +66,7 @@ subprojects {
         maven { url = 'https://maven.minecraftforge.net/' }
         maven { name = 'tterrag'; url = 'https://maven.tterrag.com/' }
         maven { name = 'TerraformersMC'; url = 'https://maven.terraformersmc.com/releases' }
+        maven { name = 'BlameJared'; url = 'https://maven.blamejared.com/' }
     }
 
     dependencies {

@@ -42,6 +42,16 @@ dependencies {
         runtimeOnly fg.deobf("dev.emi:emi-forge:${project.emi_version}")
     }
 
+    // JEI is the other optional client-side integration, on the same terms: API at compile time,
+    // never bundled. The dev run loads EMI by default because two item list mods in one client
+    // fight over the same screen edges, so pass -PjeiRun to swap JEI in and check its exclusion
+    // areas ("gradlew :omt:runClient -PnoEmi -PjeiRun").
+    compileOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}-common-api:${project.jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge-api:${project.jei_version}")
+    if (project.hasProperty('jeiRun')) {
+        runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}")
+    }
+
     implementation project(':omlib')
     jarJar(project(':omlib')) {
         transitive = false

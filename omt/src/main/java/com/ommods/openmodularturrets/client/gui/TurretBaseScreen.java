@@ -1,5 +1,6 @@
 package com.ommods.openmodularturrets.client.gui;
 
+import com.ommods.omlib.api.gui.IBlockingScreen;
 import com.ommods.omlib.util.OMPlayer;
 import com.ommods.omlib.util.permission.TrustedPlayer;
 import com.ommods.openmodularturrets.content.base.TurretBaseMenu;
@@ -8,6 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -21,7 +23,7 @@ import java.util.List;
  * column (Mode/Configure/Target/Drop base/Drop turrets) gated by the viewer's access, and the 1.12
  * info panel (owner, mode, active, kills, trusted players, attack flags) to the left of the GUI.
  */
-public class TurretBaseScreen extends AbstractContainerScreen<TurretBaseMenu> {
+public class TurretBaseScreen extends AbstractContainerScreen<TurretBaseMenu> implements IBlockingScreen {
 
     private static final String[] TIER_WORD = {"one", "two", "three", "four", "five"};
     private static final java.util.Random RANDOM = new java.util.Random();
@@ -93,6 +95,21 @@ public class TurretBaseScreen extends AbstractContainerScreen<TurretBaseMenu> {
         if (minecraft != null && minecraft.gameMode != null) {
             minecraft.gameMode.handleInventoryButtonClick(menu.containerId, id);
         }
+    }
+
+    /**
+     * 1.12 reported one rectangle here, the side button column, and only when the viewer had the
+     * access to be given buttons at all. The column is covered by the widget scan, and the info panel
+     * is added because it draws left of the GUI on every render, which 1.12 never accounted for.
+     */
+    @Override
+    public List<Rect2i> getBlockingAreas() {
+        List<Rect2i> areas = IBlockingScreen.widgetAreas(this);
+        // The info panel is a hovering text box anchored at (leftPos - 128, topPos + 17). Its width
+        // grows with the trusted player list, so reserve the whole strip left of the GUI rather than
+        // guessing at the text metrics.
+        areas.add(new Rect2i(leftPos - 132, topPos, 132, 190));
+        return areas;
     }
 
     private Component targetLabel() {

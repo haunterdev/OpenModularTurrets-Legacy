@@ -1,21 +1,25 @@
 package com.ommods.openmodularturrets.client.gui;
 
+import com.ommods.omlib.api.gui.IBlockingScreen;
 import com.ommods.openmodularturrets.content.base.ConfigureMenu;
 import com.ommods.openmodularturrets.content.base.TurretBaseMenu;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+
+import java.util.List;
 
 /**
  * The base's configure screen, ported from 1.12 ConfigureGui: the three attack toggles at the 1.12
  * coordinates over the classic configure.png, the admins' Trusted Players editor, and a Back button
  * to the base GUI. (1.12's tier-4 camo light sliders are not ported; the base has no camo system.)
  */
-public class ConfigureScreen extends AbstractContainerScreen<ConfigureMenu> {
+public class ConfigureScreen extends AbstractContainerScreen<ConfigureMenu> implements IBlockingScreen {
 
     private static final ResourceLocation TEXTURE =
             new ResourceLocation("openmodularturrets", "textures/gui/configure.png");
@@ -70,6 +74,12 @@ public class ConfigureScreen extends AbstractContainerScreen<ConfigureMenu> {
         if (minecraft != null && minecraft.gameMode != null) {
             minecraft.gameMode.handleInventoryButtonClick(menu.containerId, id);
         }
+    }
+
+    /** The Back button sits at leftPos + 185, clear of the 176 wide background. */
+    @Override
+    public List<Rect2i> getBlockingAreas() {
+        return IBlockingScreen.widgetAreas(this);
     }
 
     private Component toggleLabel(int buttonId) {
