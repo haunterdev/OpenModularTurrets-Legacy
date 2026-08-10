@@ -25,7 +25,7 @@ public class DisposableProjectileEntity extends OMTProjectile {
 
     public DisposableProjectileEntity(EntityType<? extends DisposableProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.DISPOSABLE.gravity();
+        setKind(ProjectileKind.DISPOSABLE);
     }
 
     @Override

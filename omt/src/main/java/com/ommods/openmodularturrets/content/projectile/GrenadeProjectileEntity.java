@@ -41,7 +41,7 @@ public class GrenadeProjectileEntity extends OMTProjectile {
 
     public GrenadeProjectileEntity(EntityType<? extends GrenadeProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.GRENADE.gravity();
+        setKind(ProjectileKind.GRENADE);
     }
 
     @Override
@@ -99,7 +99,8 @@ public class GrenadeProjectileEntity extends OMTProjectile {
                 // its rating and the mob is left hittable again by the next round.
                 float total = ampedDamage(mob);
                 mob.hurt(turretDamage(), total * 0.9f);
-                mob.hurt(OMTDamage.bypass((ServerLevel) level(), this, fakeDrops, basePos()), total * 0.1f);
+                mob.hurt(OMTDamage.bypass((ServerLevel) level(), this, fakeDrops, basePos(),
+                        kind.deathMessageId()), total * 0.1f);
                 mob.invulnerableTime = -1;
             }
         }

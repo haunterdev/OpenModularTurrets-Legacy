@@ -20,7 +20,7 @@ public class BulletProjectileEntity extends OMTProjectile {
 
     public BulletProjectileEntity(EntityType<? extends BulletProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.BULLET.gravity();
+        setKind(ProjectileKind.BULLET);
     }
 
     @Override

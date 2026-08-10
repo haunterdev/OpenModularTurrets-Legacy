@@ -23,7 +23,7 @@ public class PotatoProjectileEntity extends OMTProjectile {
 
     public PotatoProjectileEntity(EntityType<? extends PotatoProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.POTATO.gravity();
+        setKind(ProjectileKind.POTATO);
     }
 
     @Override

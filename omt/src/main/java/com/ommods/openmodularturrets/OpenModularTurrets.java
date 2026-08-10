@@ -79,9 +79,7 @@ public class OpenModularTurrets {
         ExpanderInit.register(REGISTRATE.get());
         OMTItems.register(REGISTRATE.get());
         OMTRecipes.register(REGISTRATE.get());
-        // Death message for the turret damage types (1.12 never localized one; this port does).
-        REGISTRATE.get().addRawLang("death.attack.turret", "%1$s was shot down by a turret");
-        REGISTRATE.get().addRawLang("death.attack.turret.player", "%1$s was shot down by a turret while fighting %2$s");
+        registerDeathMessages();
         // The proximity warning and permission refusal lines, word for word from the 1.12 en_US.lang.
         REGISTRATE.get().addRawLang("status.warning", "You are entering a turret-protected area. Continue at your own risk.");
         REGISTRATE.get().addRawLang("status.ownership", "You do not own this turret, or you don't have permission to do that.");
@@ -97,6 +95,24 @@ public class OpenModularTurrets {
      * are written for this port: without them a player with subtitles on hears a turret open fire and
      * sees nothing, which is the one accessibility gap the sound port left.
      */
+    /**
+     * The chat line a turret kill prints, word for word from the 1.12 en_US.lang. Which line a shot
+     * uses comes from the round it fired, see ProjectileKind and TurretType.deathMessageId.
+     *
+     * <p>The generic "turret" line has no 1.12 counterpart. It covers the relativistic turret, which
+     * upstream left without one because the turret does no damage of its own.
+     */
+    private static void registerDeathMessages() {
+        REGISTRATE.get().addRawLang("death.attack.bullet", "%1$s ate some delicious lead.");
+        REGISTRATE.get().addRawLang("death.attack.grenade", "%1$s may need some assembly.");
+        REGISTRATE.get().addRawLang("death.attack.rocket",
+                "%1$s found that rainbow connection in the form of a rocket.");
+        REGISTRATE.get().addRawLang("death.attack.disposable", "Very %1$s, much dead, such wow...");
+        REGISTRATE.get().addRawLang("death.attack.laser", "%1$s got disintegrated.");
+        REGISTRATE.get().addRawLang("death.attack.ferroslug", "%1$s found atomized minerva.");
+        REGISTRATE.get().addRawLang("death.attack.turret", "%1$s was shot down by a turret");
+    }
+
     private static void registerSubtitles() {
         subtitle("machine_gun", "Gun Turret fires");
         subtitle("grenade", "Grenade Launcher Turret fires");

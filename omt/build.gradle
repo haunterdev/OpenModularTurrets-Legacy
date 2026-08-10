@@ -52,6 +52,14 @@ dependencies {
         runtimeOnly fg.deobf("mezz.jei:jei-${project.minecraft_version}-forge:${project.jei_version}")
     }
 
+    // Jade carries the block overlay the 1.12 build fed through HWYLA. Same terms as the two recipe
+    // viewers: API at compile time, never bundled. Pass -PjadeRun to put it in the dev run
+    // ("gradlew :omt:runClient -PnoEmi -PjadeRun").
+    compileOnly fg.deobf("maven.modrinth:jade:${project.jade_version}")
+    if (project.hasProperty('jadeRun')) {
+        runtimeOnly fg.deobf("maven.modrinth:jade:${project.jade_version}")
+    }
+
     implementation project(':omlib')
     jarJar(project(':omlib')) {
         transitive = false

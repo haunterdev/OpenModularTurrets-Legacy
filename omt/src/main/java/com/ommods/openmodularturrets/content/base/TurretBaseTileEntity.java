@@ -400,6 +400,51 @@ public class TurretBaseTileEntity extends OMBlockEntity implements IPowerExchang
     }
 
     /**
+     * How many rounds of the given ammo the base can reach, its own nine slots plus every touching
+     * inventory expander. This is the count 1.12's TurretHeadUtil.getAmmoLevel returned for the Waila
+     * overlay; it searches the same places {@link #consumeAmmo} draws from.
+     */
+    public int ammoCount(AmmoType ammo) {
+        if (ammo == AmmoType.NONE) {
+            return 0;
+        }
+        Item needed = ammo == AmmoType.ANY ? null : OMTItems.itemFor(ammo);
+        if (ammo != AmmoType.ANY && needed == null) {
+            return 0;
+        }
+        int total = 0;
+        for (int slot = 0; slot < AMMO_SLOTS; slot++) {
+            total += matchingCount(inventory.getStackInSlot(slot), needed);
+        }
+        Level level = getLevel();
+        if (level == null) {
+            return total;
+        }
+        for (Direction facing : Direction.values()) {
+            if (!(level.getBlockEntity(getBlockPos().relative(facing)) instanceof ExpanderBlockEntity exp)) {
+                continue;
+            }
+            ItemStackHandler inv = exp.getInventory();
+            if (inv == null) {
+                continue;
+            }
+            for (int slot = 0; slot < inv.getSlots(); slot++) {
+                total += matchingCount(inv.getStackInSlot(slot), needed);
+            }
+        }
+        return total;
+    }
+
+    /** {@code needed == null} counts anything the disposable turret would throw, as its search does. */
+    private int matchingCount(ItemStack stack, @Nullable Item needed) {
+        if (stack.isEmpty()) {
+            return 0;
+        }
+        boolean match = needed == null ? isThrowableJunk(stack) : stack.getItem() == needed;
+        return match ? stack.getCount() : 0;
+    }
+
+    /**
      * Take one round from the given slot, applying the recycler addon when present. The 1.12 numbers
      * (recyclerNegateChance 0.1, recyclerAddChance 0.05, the same in every TurretSetting): a 10 percent
      * chance the round is not consumed, and a further 5 percent chance a bonus round is added on top.

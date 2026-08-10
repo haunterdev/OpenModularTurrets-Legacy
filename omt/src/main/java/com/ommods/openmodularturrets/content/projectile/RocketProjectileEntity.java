@@ -35,7 +35,7 @@ public class RocketProjectileEntity extends OMTProjectile {
 
     public RocketProjectileEntity(EntityType<? extends RocketProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.ROCKET.gravity();
+        setKind(ProjectileKind.ROCKET);
     }
 
     /** Bind the rocket to what the turret was aiming at, so the homing config has something to chase. */

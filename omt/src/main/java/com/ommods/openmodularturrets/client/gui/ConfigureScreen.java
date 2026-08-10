@@ -125,5 +125,39 @@ public class ConfigureScreen extends AbstractContainerScreen<ConfigureMenu> impl
         }
         super.render(graphics, mouseX, mouseY, partialTick);
         renderTooltip(graphics, mouseX, mouseY);
+        drawHoverTooltips(graphics, mouseX, mouseY);
+    }
+
+    /**
+     * The 1.12 drawTooltips pass: one line per button, from the 1.12 en_US.lang. The trusted players
+     * line had "managment" misspelled upstream and is spelled out here.
+     */
+    private void drawHoverTooltips(GuiGraphics graphics, int mouseX, int mouseY) {
+        for (var child : children()) {
+            if (child instanceof Button button && button.isHovered()) {
+                String text = buttonTooltip(button);
+                if (text != null) {
+                    graphics.renderTooltip(font, Component.literal(text), mouseX, mouseY);
+                }
+                return;
+            }
+        }
+    }
+
+    private static String buttonTooltip(Button button) {
+        String label = button.getMessage().getString();
+        if (label.startsWith("Attack Mobs")) {
+            return "If the base's turrets target mobs.";
+        }
+        if (label.startsWith("Attack Neutrals")) {
+            return "If the base's turrets target passive creatures.";
+        }
+        if (label.startsWith("Attack Players")) {
+            return "If the base's turrets target (non-trusted) players.";
+        }
+        if (label.equals("Trusted Players")) {
+            return "Open trusted player management GUI.";
+        }
+        return null;
     }
 }

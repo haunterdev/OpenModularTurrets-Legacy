@@ -12,20 +12,32 @@ package com.ommods.openmodularturrets.content.turret;
  */
 public enum ProjectileKind {
     /** Hitscan turrets (laser, railgun, relativistic) fire no projectile. */
-    NONE(0.0f, false),
-    BULLET(0.0f, true),
-    ROCKET(0.0f, false),
-    GRENADE(0.03f, true),
-    POTATO(0.03f, true),
-    DISPOSABLE(0.03f, true),
-    BLAZING_CLAY(0.0f, false);
+    NONE(0.0f, false, "turret"),
+    BULLET(0.0f, true, "bullet"),
+    ROCKET(0.0f, false, "rocket"),
+    GRENADE(0.03f, true, "grenade"),
+    POTATO(0.03f, true, "disposable"),
+    DISPOSABLE(0.03f, true, "disposable"),
+    // 1.12's BlazingClayProjectile built its damage source with the name "bullet", so an incendiary
+    // kill read as a bullet kill and death.attack.blazingclay was never reachable. Kept as it was.
+    BLAZING_CLAY(0.0f, false, "bullet");
 
     private final float gravity;
     private final boolean leadGravity;
+    private final String deathMessageId;
 
-    ProjectileKind(float gravity, boolean leadGravity) {
+    ProjectileKind(float gravity, boolean leadGravity, String deathMessageId) {
         this.gravity = gravity;
         this.leadGravity = leadGravity;
+        this.deathMessageId = deathMessageId;
+    }
+
+    /**
+     * The name 1.12 passed to the damage source constructor, which vanilla turns into the
+     * {@code death.attack.<id>} chat line when the shot kills something.
+     */
+    public String deathMessageId() {
+        return deathMessageId;
     }
 
     /** Downward acceleration the projectile falls at per tick; 0 means it flies straight. */

@@ -82,6 +82,26 @@ public enum TurretType {
     }
 
     /**
+     * The {@code death.attack.<id>} suffix for a kill by this turret. Projectile heads take it from
+     * the round they fire, matching 1.12 where each projectile named its own damage source.
+     *
+     * <p>The hitscan heads are the one deviation. 1.12's RayTracingTurret passed the turret's registry
+     * name, so a laser kill asked for {@code death.attack.laser_turret}, a key the mod never shipped,
+     * and the raw key appeared in chat. It did ship {@code death.attack.laser} and
+     * {@code death.attack.ferroslug}, which name those two heads and nothing else, so the laser and
+     * the railgun use them. The relativistic turret deals no damage of its own and only kills through
+     * a damage amp addon, and upstream wrote no line for it, so it falls back to the generic one.
+     */
+    public String deathMessageId() {
+        return switch (this) {
+            case LASER -> "laser";
+            case RAILGUN -> "ferroslug";
+            case RELATIVISTIC, TELEPORTER -> "turret";
+            default -> projectile().deathMessageId();
+        };
+    }
+
+    /**
      * True for the two heads that apply an effect instead of shooting: the teleporter and the
      * relativistic turret. In 1.12 both extend {@code TurretHead} directly rather than
      * {@code ProjectileTurret} or {@code RayTracingTurret}, so neither has the scatter-shot round loop

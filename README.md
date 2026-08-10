@@ -27,6 +27,8 @@ Keridos).
 - **Recipe viewer integration.** Every recipe is an ordinary crafting recipe, so JEI, EMI or any
   other viewer lists them with no help from the mod. JEI and EMI also get exclusion areas, which
   keep their item lists off the turret base's side button column and info panel.
+- **Jade overlay.** Look at a base to see its redstone mode, whether it is active, and its owner.
+  Look at a turret head to add the loaded ammo, damage boost, accuracy and rate of fire.
 
 ## Requirements
 

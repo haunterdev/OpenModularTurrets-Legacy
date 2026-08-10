@@ -51,18 +51,19 @@ public final class OMTDamage {
      * firing base, so a kill can bump its counters; null when unknown.
      */
     public static DamageSource normal(ServerLevel level, @Nullable Entity directEntity, int fakeDrops,
-                                      @Nullable BlockPos basePos) {
-        return source(level, TURRET_NORMAL, directEntity, fakeDrops, basePos);
+                                      @Nullable BlockPos basePos, String messageId) {
+        return source(level, TURRET_NORMAL, directEntity, fakeDrops, basePos, messageId);
     }
 
     /** The armor-ignoring share of a shot (the grenade's 10 percent slice). */
     public static DamageSource bypass(ServerLevel level, @Nullable Entity directEntity, int fakeDrops,
-                                      @Nullable BlockPos basePos) {
-        return source(level, TURRET_BYPASS, directEntity, fakeDrops, basePos);
+                                      @Nullable BlockPos basePos, String messageId) {
+        return source(level, TURRET_BYPASS, directEntity, fakeDrops, basePos, messageId);
     }
 
     private static DamageSource source(ServerLevel level, ResourceKey<DamageType> type,
-                                       @Nullable Entity directEntity, int fakeDrops, @Nullable BlockPos basePos) {
+                                       @Nullable Entity directEntity, int fakeDrops,
+                                       @Nullable BlockPos basePos, String messageId) {
         var holder = level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(type);
         Entity attacker = null;
         if (fakeDrops > -1) {
@@ -72,7 +73,7 @@ public final class OMTDamage {
             fp.setItemInHand(InteractionHand.MAIN_HAND, swordFor(fakeDrops));
             attacker = fp;
         }
-        return new OMTDamageSource(holder, directEntity, attacker, basePos);
+        return new OMTDamageSource(holder, directEntity, attacker, basePos, messageId);
     }
 
     private static ItemStack swordFor(int looting) {

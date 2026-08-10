@@ -741,8 +741,9 @@ public class TurretBaseBlockEntity extends OMBlockEntity {
         BlockPos basePos = base.getBlockPos();
         float normalFactor = type == TurretType.RAILGUN ? 0.0F : 1.0F;
         float bypassFactor = type == TurretType.RAILGUN ? 1.0F : 0.0F;
-        living.hurt(OMTDamage.normal(level, null, fakeDrops, basePos), damage * normalFactor);
-        living.hurt(OMTDamage.bypass(level, null, fakeDrops, basePos), damage * bypassFactor);
+        String deathMessage = type.deathMessageId();
+        living.hurt(OMTDamage.normal(level, null, fakeDrops, basePos, deathMessage), damage * normalFactor);
+        living.hurt(OMTDamage.bypass(level, null, fakeDrops, basePos, deathMessage), damage * bypassFactor);
         living.invulnerableTime = -1;
         // The hit sound, on the AMBIENT category at the target's position, pitched 0.5 to 1.5.
         level.playSound(null, living.blockPosition(), hitSound(), SoundSource.AMBIENT,

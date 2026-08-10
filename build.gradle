@@ -67,6 +67,11 @@ subprojects {
         maven { name = 'tterrag'; url = 'https://maven.tterrag.com/' }
         maven { name = 'TerraformersMC'; url = 'https://maven.terraformersmc.com/releases' }
         maven { name = 'BlameJared'; url = 'https://maven.blamejared.com/' }
+        maven {
+            name = 'Modrinth'
+            url = 'https://api.modrinth.com/maven'
+            content { includeGroup 'maven.modrinth' }
+        }
     }
 
     dependencies {

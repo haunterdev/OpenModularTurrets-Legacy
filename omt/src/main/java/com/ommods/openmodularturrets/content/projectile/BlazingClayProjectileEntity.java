@@ -21,7 +21,7 @@ public class BlazingClayProjectileEntity extends OMTProjectile {
 
     public BlazingClayProjectileEntity(EntityType<? extends BlazingClayProjectileEntity> type, Level level) {
         super(type, level);
-        this.gravity = ProjectileKind.BLAZING_CLAY.gravity();
+        setKind(ProjectileKind.BLAZING_CLAY);
     }
 
     // DROPPED: no tick override. 1.12 BlazingClayProjectile spawns no particles of any kind; the

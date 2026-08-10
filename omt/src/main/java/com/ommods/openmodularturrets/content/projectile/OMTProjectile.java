@@ -4,6 +4,7 @@ import com.ommods.openmodularturrets.content.base.TurretBaseTileEntity;
 import com.ommods.openmodularturrets.content.block.TurretBaseBlock;
 import com.ommods.openmodularturrets.content.turret.OMTDamage;
 import com.ommods.openmodularturrets.content.turret.OMTEvents;
+import com.ommods.openmodularturrets.content.turret.ProjectileKind;
 import com.ommods.openmodularturrets.content.turret.TurretDamage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -46,6 +47,7 @@ public abstract class OMTProjectile extends ThrowableProjectile {
     private static final EntityDataAccessor<ItemStack> DATA_AMMO =
             SynchedEntityData.defineId(OMTProjectile.class, EntityDataSerializers.ITEM_STACK);
 
+    protected ProjectileKind kind = ProjectileKind.NONE;
     protected float gravity = 0.0f;
     protected float damage = 1.0f;
     // Damage-amp addon: extra damage per point of the target's current health, faithful to 1.12
@@ -61,6 +63,15 @@ public abstract class OMTProjectile extends ThrowableProjectile {
 
     protected OMTProjectile(EntityType<? extends OMTProjectile> type, Level level) {
         super(type, level);
+    }
+
+    /**
+     * Bind the round to the classic projectile it stands for, which fixes its fall rate and the
+     * death line a kill prints. Called from each subclass constructor.
+     */
+    protected void setKind(ProjectileKind kind) {
+        this.kind = kind;
+        this.gravity = kind.gravity();
     }
 
     /** Bind the projectile to the base that fired it and set its per-shot damage. */
@@ -107,7 +118,7 @@ public abstract class OMTProjectile extends ThrowableProjectile {
      * addon the attacker is the OMT fake player so the kill counts as a player kill.
      */
     protected DamageSource turretDamage() {
-        return OMTDamage.normal((ServerLevel) level(), this, fakeDrops, basePos());
+        return OMTDamage.normal((ServerLevel) level(), this, fakeDrops, basePos(), kind.deathMessageId());
     }
 
     /**
