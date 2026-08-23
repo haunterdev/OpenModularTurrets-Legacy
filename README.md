@@ -38,7 +38,7 @@ Keridos).
 ## Installation
 
 1. Install Minecraft Forge for 1.20.1.
-2. Drop `openmodularturrets-4.0.0.jar` into your `mods` folder.
+2. Put `openmodularturrets-4.0.0.jar` into your `mods` folder.
 3. Launch the game. `config/omlib-common.toml` holds the client and startup settings. Turret
    balance and permissions are per world, in `saves/<world>/serverconfig/`, as
    `openmodularturrets-server.toml` and `omlib-server.toml`.
