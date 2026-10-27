@@ -1,0 +1,19 @@
+{
+  "block.ompd.camo_trap": "Camouflage Trap",
+  "block.ompd.fence_tier_five": "Fence (Tier 5)",
+  "block.ompd.fence_tier_four": "Fence (Tier 4)",
+  "block.ompd.fence_tier_one": "Fence (Tier 1)",
+  "block.ompd.fence_tier_three": "Fence (Tier 3)",
+  "block.ompd.fence_tier_two": "Fence (Tier 2)",
+  "block.ompd.hardened_tier_five": "Hardened Block (Tier 5)",
+  "block.ompd.hardened_tier_four": "Hardened Block (Tier 4)",
+  "block.ompd.hardened_tier_one": "Hardened Block (Tier 1)",
+  "block.ompd.hardened_tier_three": "Hardened Block (Tier 3)",
+  "block.ompd.hardened_tier_two": "Hardened Block (Tier 2)",
+  "block.ompd.wall_tier_five": "Hardened Wall (Tier 5)",
+  "block.ompd.wall_tier_four": "Hardened Wall (Tier 4)",
+  "block.ompd.wall_tier_one": "Hardened Wall (Tier 1)",
+  "block.ompd.wall_tier_three": "Hardened Wall (Tier 3)",
+  "block.ompd.wall_tier_two": "Hardened Wall (Tier 2)",
+  "status.ownership": "You do not own this block, or you don't have permission to do that."
+}

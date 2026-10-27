@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "ompd:hardened_tier_three"
+    },
+    "B": {
+      "item": "minecraft:nether_brick"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BAB",
+    "ABA"
+  ],
+  "result": {
+    "count": 16,
+    "item": "ompd:hardened_tier_four"
+  },
+  "show_notification": true
+}

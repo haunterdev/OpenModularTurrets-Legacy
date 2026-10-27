@@ -2,12 +2,12 @@
 
   <h1>Open Modular Turrets Legacy</h1>
 
-  <p>Modular, upgradeable turrets that defend your base for Minecraft 1.20.1.</p>
+  <p>Modular turrets and passive defenses for Minecraft 1.20.1.</p>
 
 </div>
 
 A 1.20.1 port of Open Modular Turrets by the OpenModularTurrets Team (Poenjabiesous, UntouchedWagons,
-Keridos).
+Keridos), together with Open Modular Passive Defense by Keridos.
 
 ## Features
 
@@ -29,6 +29,9 @@ Keridos).
   keep their item lists off the turret base's side button column and info panel.
 - **Jade overlay.** Look at a base to see its redstone mode, whether it is active, and its owner.
   Look at a turret head to add the loaded ammo, damage boost, accuracy and rate of fire.
+- **Passive defense companion.** Open Modular Passive Defense adds five tiers each of hardened
+  blocks, walls and damaging fences, plus an owner-only camouflage trap. Ownership uses the same
+  trust list as the turrets.
 
 ## Requirements
 
@@ -37,8 +40,9 @@ Keridos).
 
 ## Installation
 
-1. Install Minecraft Forge for 1.20.1.
-2. Put `openmodularturrets-4.0.0.jar` into your `mods` folder.
+1. Install Minecraft Forge 47.4.10 or newer for Minecraft 1.20.1.
+2. Put `openmodularturrets-4.0.0.jar` into your `mods` folder. Add `ompd-4.0.0.jar` for the passive
+   defense blocks.
 3. Launch the game. `config/omlib-common.toml` holds the client and startup settings. Turret
    balance and permissions are per world, in `saves/<world>/serverconfig/`, as
    `openmodularturrets-server.toml` and `omlib-server.toml`.
@@ -58,40 +62,11 @@ you own, and `/omlib changeowner` hands a block over for good.
   `/omlib` root.
 - Three trust packets in the original let any client edit any player's global trust list without a
   permission check. Every trust action is now authorised against the sending connection's player.
-- Camouflage, OpenModularPassiveDefense and FloodLights are not ported.
+- FloodLights is not ported.
 - The Potentia Converter addon is not included. It converted Thaumcraft essentia, had no recipe, and
-  could not be obtained.
+  players could not obtain it in survival.
 - The Serial Port addon is not included. It exposed a turret to computer mods that have no 1.20.1
-  counterpart here.
-
-## There is another 1.20.1 version, and it is not this one
-
-[Open Modular Turrets Reborn](https://www.curseforge.com/minecraft/mc-mods/open-modular-turrets-reborn)
-by ShapeShifterDev got to 1.20.1 first, and it deserves the credit for that. It is a different
-project with different aims, and if its aims are yours, go and play it.
-
-By its own description it is "a fully rebuilt and rebalanced revival". It adds a Ferronite ore
-progression, an eleventh turret, a coal-fired tier 1 base that needs no power, turret loot in Nether
-Fortress and Bastion chests, Mekanism ore duplication, and reworked recipes that drop the tier
-chain. It draws its own textures rather than using the OpenModularTurrets Team's. At the time of
-writing it has one file on CurseForge, uploaded 30 June 2026.
-
-That is a fine thing to want. It is not what this is. Legacy has no new ore, no new turret, no
-rebalance, no reworked recipes and no new art. The models, textures, sounds and GUI sheets are the
-original team's, taken from the 1.12.2 jar. Everything this port does differently is in the list
-directly above, and nothing on that list adds content.
-
-Pick by what you want personally, Legacy is the 1.12.2 mod on a modern loader. Reborn is
-someone's expanded take on it.
-
-## How this port is built
-
-Each class is read out of the 1.12.2 jar first and rewritten against 1.20.1. Where a line could not come across,
-the source carries a `DROPPED:` comment naming what went and why, so the gap is in the code where
-the next reader will find it.
-
-That is why the changes list above is a short list of specific items instead of a paragraph telling
-you results may vary.
+  counterpart in this 1.20.1 release.
 
 ## Building
 
@@ -99,12 +74,13 @@ you results may vary.
 ./gradlew build
 ```
 
-The built jar lands in `omt/build/libs/`. Requires JDK 17.
+The built jars land in `omt/build/libs/` and `ompd/build/libs/`. Requires JDK 17.
 
 ## Credits
 
 - Original Open Modular Turrets, and all of its models, textures, sounds, and design, by the
   **OpenModularTurrets Team**: Poenjabiesous, UntouchedWagons and Keridos.
+- Original Open Modular Passive Defense by **Keridos**.
 - 1.20.1 port by **haunterdev**.
 
 ## License

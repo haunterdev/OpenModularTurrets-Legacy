@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:gravel"
+    },
+    "B": {
+      "tag": "forge:cobblestone"
+    },
+    "C": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BCB",
+    "ABA"
+  ],
+  "result": {
+    "count": 16,
+    "item": "ompd:hardened_tier_one"
+  },
+  "show_notification": true
+}

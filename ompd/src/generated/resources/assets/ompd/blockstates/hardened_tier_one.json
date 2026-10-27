@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "ompd:block/hardened_tier_one"
+    }
+  }
+}

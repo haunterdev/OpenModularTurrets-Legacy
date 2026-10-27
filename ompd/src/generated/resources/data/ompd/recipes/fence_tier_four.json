@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_bars"
+    },
+    "B": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BAB",
+    "ABA"
+  ],
+  "result": {
+    "count": 16,
+    "item": "ompd:fence_tier_four"
+  },
+  "show_notification": true
+}

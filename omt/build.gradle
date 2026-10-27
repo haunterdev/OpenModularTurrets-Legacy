@@ -16,12 +16,25 @@ tasks.jarJar.finalizedBy('reobfJarJar')
 // ordering so jarJar reads omlib's jar only after it has been reobfed.
 tasks.jarJar.dependsOn(':omlib:reobfJar')
 
+// mods.toml reads its version from Implementation-Version (${file.jarVersion}); without it the mod
+// list shows 0.0NONE. The shipped jar is the jarJar output, which builds its own manifest.
+def omtManifest = [
+    'Specification-Title'     : 'openmodularturrets',
+    'Specification-Vendor'    : 'com.ommods',
+    'Specification-Version'   : '1',
+    'Implementation-Title'    : 'openmodularturrets',
+    'Implementation-Version'  : project.version,
+    'Implementation-Vendor'   : 'com.ommods'
+]
+
 tasks.jarJar.configure {
     archiveClassifier = ''
+    manifest { attributes(omtManifest) }
 }
 
 jar {
     archiveClassifier = 'slim'
+    manifest { attributes(omtManifest) }
 }
 
 dependencies {

@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="GPL-3.0"
+issueTrackerURL="https://github.com/haunterdev/OpenModularTurrets-Legacy/issues"
+
+[[mods]]
+modId="ompd"
+version="${file.jarVersion}"
+displayName="Open Modular Passive Defense"
+description='''Five tiers of hardened blocks, walls and damaging fences, plus an owner-only camouflage trap.'''
+authors="Keridos. 1.20.1 port by haunterdev"
+
+[[dependencies.ompd]]
+    modId="omlib"
+    mandatory=true
+    versionRange="[4.0.0,5.0.0)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.ompd]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.ompd]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,1.20.2)"
+    ordering="NONE"
+    side="BOTH"

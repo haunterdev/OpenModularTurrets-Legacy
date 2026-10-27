@@ -8,3 +8,4 @@ pluginManagement {
 rootProject.name = 'OpenModular'
 include 'omlib'
 include 'omt'
+include 'ompd'

@@ -1,0 +1,65 @@
+base {
+    archivesName = 'ompd'
+}
+
+jarJar.enable()
+
+reobf {
+    jarJar { }
+}
+
+tasks.jarJar.finalizedBy('reobfJarJar')
+
+// The embedded omlib must be reobfed to SRG before we bundle it. omlib's reobfJar rewrites its jar
+// in place, but jarJar does not otherwise wait for that finalizer, so a plain build embeds the
+// un-reobfed (Mojmap) omlib and dies in production with NoSuchFieldError: IRON_BLOCK. Force the
+// ordering so jarJar reads omlib's jar only after it has been reobfed.
+tasks.jarJar.dependsOn(':omlib:reobfJar')
+
+// reobfJar rewrites omlib's development jar in place. During a combined build, OMPD tests must
+// consume the Mojmap jar before that production transform happens or their Minecraft calls resolve
+// against SRG names and fail with NoSuchMethodError.
+def ompdTest = tasks.named('test')
+project(':omlib').tasks.named('reobfJar').configure {
+    mustRunAfter(ompdTest)
+}
+
+// mods.toml reads its version from Implementation-Version (${file.jarVersion}); without it the mod
+// list shows 0.0NONE. The shipped jar is the jarJar output, which builds its own manifest.
+def ompdManifest = [
+    'Specification-Title'     : 'ompd',
+    'Specification-Vendor'    : 'com.ommods',
+    'Specification-Version'   : '1',
+    'Implementation-Title'    : 'ompd',
+    'Implementation-Version'  : project.version,
+    'Implementation-Vendor'   : 'com.ommods'
+]
+
+tasks.jarJar.configure {
+    archiveClassifier = ''
+    manifest { attributes(ompdManifest) }
+}
+
+jar {
+    archiveClassifier = 'slim'
+    manifest { attributes(ompdManifest) }
+}
+
+dependencies {
+    implementation fg.deobf("com.tterrag.registrate:Registrate:${project.registrate_version}")
+    jarJar(group: 'com.tterrag.registrate', name: 'Registrate', version: "[MC1.20,MC1.21)") {
+        transitive = false
+    }
+
+    // Optional HUD overlay, the 1.20 replacement for the shipped HWYLA owner line. Never bundled.
+    compileOnly fg.deobf("maven.modrinth:jade:${project.jade_version}")
+    if (project.hasProperty('jadeRun')) {
+        runtimeOnly fg.deobf("maven.modrinth:jade:${project.jade_version}")
+    }
+
+    implementation project(':omlib')
+    jarJar(project(':omlib')) {
+        transitive = false
+        jarJar.ranged(it, "[4.0.0,5.0.0)")
+    }
+}

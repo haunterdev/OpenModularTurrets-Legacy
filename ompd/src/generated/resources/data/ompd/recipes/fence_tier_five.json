@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "minecraft:iron_bars"
+    },
+    "B": {
+      "tag": "forge:obsidian"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "BAB",
+    "ABA"
+  ],
+  "result": {
+    "count": 16,
+    "item": "ompd:fence_tier_five"
+  },
+  "show_notification": true
+}

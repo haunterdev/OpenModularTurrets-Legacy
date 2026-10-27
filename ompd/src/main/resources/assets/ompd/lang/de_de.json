@@ -1,0 +1,19 @@
+{
+  "block.ompd.camo_trap": "Camouflage Falle",
+  "block.ompd.fence_tier_five": "Zaun (Tier 5)",
+  "block.ompd.fence_tier_four": "Zaun (Tier 4)",
+  "block.ompd.fence_tier_one": "Zaun (Tier 1)",
+  "block.ompd.fence_tier_three": "Zaun (Tier 3)",
+  "block.ompd.fence_tier_two": "Zaun (Tier 2)",
+  "block.ompd.hardened_tier_five": "Verteidigungsblock (Tier 5)",
+  "block.ompd.hardened_tier_four": "Verteidigungsblock (Tier 4)",
+  "block.ompd.hardened_tier_one": "Verteidigungsblock (Tier 1)",
+  "block.ompd.hardened_tier_three": "Verteidigungsblock (Tier 3)",
+  "block.ompd.hardened_tier_two": "Verteidigungsblock (Tier 2)",
+  "block.ompd.wall_tier_five": "Verteidigungsmauer (Tier 5)",
+  "block.ompd.wall_tier_four": "Verteidigungsmauer (Tier 4)",
+  "block.ompd.wall_tier_one": "Verteidigungsmauer (Tier 1)",
+  "block.ompd.wall_tier_three": "Verteidigungsmauer (Tier 3)",
+  "block.ompd.wall_tier_two": "Verteidigungsmauer (Tier 2)",
+  "status.ownership": "Du besitzt diesen Block nicht, oder hast dazu keine Berechtigung."
+}
