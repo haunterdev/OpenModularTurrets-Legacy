@@ -56,11 +56,11 @@ public class OpenModularTurrets {
                         output.accept(OMTItems.AMMO_ROCKET.get());
                         output.accept(OMTItems.AMMO_BLAZING_CLAY.get());
                         output.accept(OMTItems.AMMO_FERRO_SLUG.get());
-                        // DROPPED: the throwable bullet and grenade. 1.12 put usable_meta 0 and 1 in
-                        // the tab, but in this port they exist only as the in-flight model a round is
-                        // drawn with; they have no recipe, no use and no ammo value, so listing them
-                        // just adds two dead items a player can pick up and do nothing with.
                         OMTItems.modifiers().forEach(entry -> output.accept(entry.get()));
+                        // 1.12's UsableMetaItem: usable_meta 0 and 1 are the throwable bullet and
+                        // grenade (the art the bullet and grenade rounds are drawn with), 2 the card.
+                        output.accept(OMTItems.THROWABLE_BULLET.get());
+                        output.accept(OMTItems.THROWABLE_GRENADE.get());
                         output.accept(OMTItems.MEMORY_CARD.get());
                         OMTItems.intermediates().forEach(entry -> output.accept(entry.get()));
                         // omlib's network cable is deliberately absent: 1.12 registers it with no
