@@ -9,64 +9,48 @@
 A 1.20.1 port of Open Modular Turrets by the OpenModularTurrets Team (Poenjabiesous, UntouchedWagons,
 Keridos), together with Open Modular Passive Defense by Keridos.
 
+Client and server side mod.
+
 ## Features
 
-- **Ten turret heads.** Disposable, Potato Cannon, Machine Gun, Incendiary, Grenade, Rocket, Laser,
-  Railgun, Relativistic, and Teleporter. Each carries its own range, fire rate, damage, energy cost and
-  accuracy, and the projectile turrets throw real flying rounds you can watch fly.
-- **Five base tiers.** A turret base holds the energy, the ammo and the targeting rules; the head sits
-  on top of it. Tier 1 stores 500 FE and carries one head, tier 5 stores 10,000,000 FE and carries four.
-- **Five upgrades and six addons.** Accuracy, Efficiency, Fire Rate, Range and Scatter Shot upgrades;
-  Concealer, Damage Boost, Recycler, Redstone Reactor, Solar Panel and Fake Drops addons. Upgrades
-  stack four to a slot; addons take one slot each, except Damage Boost and Fake Drops, which also
-  stack to four and get stronger as they do.
-- **Targeting you control.** Per-base toggles for mobs, neutrals and players, a trust list so friends
-  are not shot on sight, and a global trust list that applies to every base you own.
-- **Support blocks.** The Expander for extra upgrade and addon room, the Energizer, the Loot Deleter
-  base addon, a lever for redstone control, and the Turret Memory Card for copying a base's settings.
-- **Recipe viewer integration.** Every recipe is an ordinary crafting recipe, so JEI, EMI or any
-  other viewer lists them with no help from the mod. JEI and EMI also get exclusion areas, which
-  keep their item lists off the turret base's side button column and info panel.
-- **Jade overlay.** Look at a base to see its redstone mode, whether it is active, and its owner.
-  Look at a turret head to add the loaded ammo, damage boost, accuracy and rate of fire.
-- **Passive defense companion.** Open Modular Passive Defense adds five tiers each of hardened
-  blocks, walls and damaging fences, plus an owner-only camouflage trap. Ownership uses the same
-  trust list as the turrets.
+- Ten turret heads: Disposable, Potato Cannon, Machine Gun, Incendiary, Grenade, Rocket, Laser,
+  Railgun, Relativistic, and Teleporter, each with its own range, fire rate, damage and energy cost.
+- Five base tiers: a turret base holds the energy, the ammo and the targeting rules, and the head
+  sits on top. Tier 1 stores 500 FE and carries one head, tier 5 stores 10,000,000 FE and carries four.
+- Five upgrades and six addons: Accuracy, Efficiency, Fire Rate, Range and Scatter Shot upgrades;
+  Concealer, Damage Boost, Recycler, Redstone Reactor, Solar Panel and Fake Drops addons.
+- Targeting you control: per-base toggles for mobs, neutrals and players, a trust list for friends,
+  and a global trust list for every base you own.
+- Support blocks: the Expander, the Energizer, the Loot Deleter, a lever for redstone control, and
+  the Turret Memory Card for copying a base's settings.
+- JEI, EMI and Jade support.
+- Passive defense companion: Open Modular Passive Defense adds five tiers each of hardened
+  blocks, walls and damaging fences, plus an owner-only camouflage trap.
 
 ## Requirements
 
 - Minecraft 1.20.1
-- Minecraft Forge 47.4.10 or newer
+- Forge 47.4.10 or newer
 
 ## Installation
 
-1. Install Minecraft Forge 47.4.10 or newer for Minecraft 1.20.1.
-2. Put `openmodularturrets-4.0.0.jar` into your `mods` folder. Add `ompd-4.0.0.jar` for the passive
-   defense blocks.
-3. Launch the game. `config/omlib-common.toml` holds the client and startup settings. Turret
-   balance and permissions are per world, in `saves/<world>/serverconfig/`, as
-   `openmodularturrets-server.toml` and `omlib-server.toml`.
+Put `openmodularturrets-4.0.0.jar` into your `mods` folder. Add `ompd-4.0.0.jar` for the passive
+defense blocks.
 
 ## Getting started
 
-Craft a Turret Base, place it, and right click it to open the base GUI. Feed it energy from any Forge
-energy cable, put ammo in the ammo slots for the turrets that need it, then place a turret head on top
-of the base. Open the base's Configure screen to set what it shoots at and who it trusts.
+Craft a Turret Base, place it, and right click it to open the base GUI. Feed it Forge energy, put ammo
+in the ammo slots, then place a turret head on top of the base. The base's Configure screen sets what
+it shoots at and who it trusts.
 
-`/omlib trust gui` opens your global trust list, `/omlib share` lets another player operate the blocks
-you own, and `/omlib changeowner` hands a block over for good.
+`/omlib trust gui` opens your global trust list, `/omlib share` lets another player use your blocks,
+and `/omlib changeowner` hands a block over.
 
 ## Changes from the original
 
-- The three commands `/omshareowner`, `/omchangeowner` and `/omdebug` are now subcommands of one
-  `/omlib` root.
-- Three trust packets in the original let any client edit any player's global trust list without a
-  permission check. Every trust action is now authorised against the sending connection's player.
-- FloodLights is not ported.
-- The Potentia Converter addon is not included. It converted Thaumcraft essentia, had no recipe, and
-  players could not obtain it in survival.
-- The Serial Port addon is not included. It exposed a turret to computer mods that have no 1.20.1
-  counterpart in this 1.20.1 release.
+- `/omshareowner`, `/omchangeowner` and `/omdebug` are now subcommands of `/omlib`.
+- Fixed: any player could edit another player's global trust list.
+- FloodLights, the Potentia Converter addon and the Serial Port addon are not included.
 
 ## Building
 
@@ -74,17 +58,16 @@ you own, and `/omlib changeowner` hands a block over for good.
 ./gradlew build
 ```
 
-The built jars land in `omt/build/libs/` and `ompd/build/libs/`. Requires JDK 17.
+The jars land in `omt/build/libs/` and `ompd/build/libs/`. Requires JDK 17.
 
 ## Credits
 
 - Original Open Modular Turrets, and all of its models, textures, sounds, and design, by the
-  **OpenModularTurrets Team**: Poenjabiesous, UntouchedWagons and Keridos.
-- Original Open Modular Passive Defense by **Keridos**.
-- 1.20.1 port by **haunterdev**.
+  OpenModularTurrets Team: Poenjabiesous, UntouchedWagons and Keridos.
+- Original Open Modular Passive Defense by Keridos.
+- 1.20.1 port by haunterdev.
 
 ## License
 
-[GPL-3.0](LICENSE), following the original mod's published license. That covers the mod and this
-repository. The bundled OMLib portion is MIT and keeps its own licence next to the code it covers,
-in [omlib/LICENSE](omlib/LICENSE).
+[GPL-3.0](LICENSE), the same as the original. The bundled OMLib is MIT, see
+[omlib/LICENSE](omlib/LICENSE).
