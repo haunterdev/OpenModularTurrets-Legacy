@@ -23,8 +23,8 @@ import net.minecraftforge.common.Tags;
 /**
  * The faithful 1.12 vanilla crafting recipes, ported one to one from the jar's recipe JSONs (the
  * {@code *_vanilla.json} set; EnderIO/Mekanism variants do not apply without those mods). Ore
- * dictionary keys become the matching Forge tags. Recipes whose results are not ported (ferro slug,
- * recycler/serial port/fake drops addons, base addon, lever, memory card) are left out with them.
+ * dictionary keys become the matching Forge tags. The serial port addon is not ported, so its recipe
+ * is left out with it.
  */
 public final class OMTRecipes {
 
@@ -151,7 +151,7 @@ public final class OMTRecipes {
                 'A', Tags.Items.GLASS_PANES, 'B', Tags.Items.STORAGE_BLOCKS_LAPIS,
                 'C', Tags.Items.DUSTS_REDSTONE, 'D', Tags.Items.INGOTS_IRON, 'E', ioBus());
 
-        // The Loot Deleter base attachment, the crank and the memory card (1.12 base_addon_meta_0,
+        // The Loot Deleter base attachment, the lever and the memory card (1.12 base_addon_meta_0,
         // lever_block and usable_meta_2; the card's dye meta 4 was lapis).
         shaped(prov, ExpanderInit.LOOT_DELETER.get(), 1, new String[]{"ABA", "DCD", "ADA"},
                 'A', Tags.Items.OBSIDIAN, 'B', Tags.Items.INGOTS_IRON, 'C', Tags.Items.DUSTS_REDSTONE,

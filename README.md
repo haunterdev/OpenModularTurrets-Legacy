@@ -6,10 +6,11 @@
 
 </div>
 
-A 1.20.1 port of Open Modular Turrets by the OpenModularTurrets Team (Poenjabiesous, UntouchedWagons,
-Keridos), together with Open Modular Passive Defense by Keridos.
+A 1.20.1 port of [Open Modular Turrets](https://www.curseforge.com/minecraft/mc-mods/openmodularturrets)
+by the OpenModularTurrets Team (Poenjabiesous, UntouchedWagons, Keridos), together with
+[Open Modular Passive Defense](https://www.curseforge.com/minecraft/mc-mods/ompd) by Keridos.
 
-Client and server side mod.
+This is a client and server side mod.
 
 ## Features
 
