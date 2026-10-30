@@ -28,9 +28,9 @@ public final class OMTItems {
     public static ItemEntry<Item> AMMO_BLAZING_CLAY;
     public static ItemEntry<Item> AMMO_FERRO_SLUG;
 
-    // 1.12 usable_meta 0 and 1. Inert items with no recipe and no use of their own; they exist only so
-    // the projectile renderers have a model to draw a round in flight with. Registered but kept out of
-    // the creative tab, unlike 1.12, because here they are pure render props.
+    // 1.12 usable_meta 0 and 1, "Throwable Bullet" and "Throwable Grenade". Inert items with no recipe
+    // and no use of their own (1.12's UsableMetaItem right click acts only on meta 2, the memory card);
+    // the projectile renderers draw a round in flight with them. In the creative tab, as in 1.12.
     public static ItemEntry<Item> THROWABLE_BULLET;
     public static ItemEntry<Item> THROWABLE_GRENADE;
 
@@ -80,8 +80,8 @@ public final class OMTItems {
                 (Item.Properties p) -> (Item) new AmmoItem(p, "This advanced looking slug is for the railgun."))
                 .lang("Ammo - Ferro-Magnetic Slug").register();
 
-        THROWABLE_BULLET = registrate.item("throwable_bullet", Item::new).lang("Bullet").register();
-        THROWABLE_GRENADE = registrate.item("throwable_grenade", Item::new).lang("Grenade").register();
+        THROWABLE_BULLET = registrate.item("throwable_bullet", Item::new).lang("Throwable Bullet").register();
+        THROWABLE_GRENADE = registrate.item("throwable_grenade", Item::new).lang("Throwable Grenade").register();
 
         UPGRADE_ACCURACY = upgrade(registrate, "upgrade_accuracy", TurretUpgrades.UP_ACCURACY, "Upgrade - Accuracy");
         UPGRADE_EFFICIENCY = upgrade(registrate, "upgrade_efficiency", TurretUpgrades.UP_EFFICIENCY, "Upgrade - Efficiency");
